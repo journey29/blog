@@ -21,10 +21,10 @@ const NewVerification = () => {
   const token = searchParams.get("token");
   const { mutate, data } = api.auth.newVerification.useMutation();
 
-  if (!token) return;
-
   useEffect(() => {
-    mutate({ token });
+    if (token) {
+      mutate({ token });
+    }
   }, []);
 
   return (
