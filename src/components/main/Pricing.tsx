@@ -7,7 +7,7 @@ import { CheckCircle2 } from "lucide-react";
 
 const Pricing = () => {
   return (
-    <div className="mb-16 space-y-5 sm:mb-24">
+    <div className="mb-16 space-y-5 sm:mb-24" id="pricing">
       <Title title="Pricing" />
       <div className="flex flex-wrap items-center justify-center gap-10">
         <PricingItem

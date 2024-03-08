@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Button } from "../ui/button";
 
 const Hero = () => {
@@ -13,11 +14,11 @@ const Hero = () => {
           technical stuff.
         </p>
         <div className="mb-8 flex flex-col items-center gap-3 sm:flex-row sm:gap-5">
-          <Button size={"lg"} className="w-full">
-            Start your blog
+          <Button size={"lg"} className="w-full" asChild>
+            <Link href="/blog">Start your blog</Link>
           </Button>
-          <Button size={"lg"} className="w-full">
-            Pricing
+          <Button size={"lg"} className="w-full" asChild>
+            <Link href="#pricing">Pricing</Link>
           </Button>
         </div>
       </div>

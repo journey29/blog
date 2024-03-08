@@ -1,7 +1,40 @@
+import { db } from "@/server/db";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
-  console.log(123);
+  const {
+    invoiceId,
+    status,
+    failureReason,
+    errCode,
+    amount,
+    ccy,
+    finalAmount,
+    createdDate,
+    modifiedDate,
+    reference,
+  }: any = req.body;
 
-  return NextResponse.json({ message: 123 });
+  if (status === "created") {
+    const existingInvoice = await db.invoice.create({
+      data: {
+        amount,
+        ccy,
+        createdDate,
+        errCode,
+        failureReason,
+        finalAmount,
+        modifiedDate,
+        reference,
+        status,
+        id: invoiceId,
+      },
+    });
+
+    if (existingInvoice) {
+      return NextResponse.json({ error: "Invoice already exist!" });
+    }
+  }
+
+  return NextResponse.json({ message: "Invoice created!" });
 }
