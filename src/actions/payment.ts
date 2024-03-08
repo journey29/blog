@@ -32,8 +32,8 @@ export const createPayment = async (paymentData: {
             },
           ],
         },
-        redirectUrl: "http://localhost:3000",
-        webHookUrl: "http://localhost:3000/api/mono",
+        redirectUrl: "https://blog-pi-two-39.vercel.app",
+        webHookUrl: "https://blog-pi-two-39.vercel.app/api/mono",
       }),
       headers: {
         "X-Token": process.env.MONOAPI_X_TOKEN!,
