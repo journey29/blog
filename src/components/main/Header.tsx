@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <header className="bg-primary py-10 text-white">
       <Container>
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col items-center gap-5 sm:flex-row sm:justify-between">
           <Link href="/" className="text-3xl font-bold">
             storytrail.
           </Link>

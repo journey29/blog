@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const Controls = () => {
   return (
-    <div className="flex items-center gap-6">
+    <div className="flex flex-col items-start gap-6 md:flex-row md:items-center">
       <div className="flex-1">
         <Filter />
       </div>

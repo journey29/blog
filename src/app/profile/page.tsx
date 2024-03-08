@@ -11,17 +11,17 @@ const Profile = () => {
   const user = useAuth();
 
   return (
-    <div className="mt-24 space-y-4">
+    <div className="mt-16 space-y-4 sm:mt-24">
       <h2 className="text-4xl font-bold">Profile</h2>
       <div className="flex items-start gap-10">
         <div>
           <h4 className="space-x-2 text-lg">
             <span>Your name:</span>
-            <span className="font-medium">{user?.name}</span>
+            <span className="break-all font-medium">{user?.name}</span>
           </h4>
           <p className="space-x-2 text-lg">
             <span>Your email:</span>
-            <span className="font-medium">{user?.email}</span>
+            <span className="break-all font-medium">{user?.email}</span>
           </p>
         </div>
         {user?.image && (

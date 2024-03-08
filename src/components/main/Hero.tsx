@@ -2,8 +2,8 @@ import { Button } from "../ui/button";
 
 const Hero = () => {
   return (
-    <div className="my-24 flex items-start justify-between">
-      <div className="w-full max-w-[475px]">
+    <div className="my-16 flex flex-col items-center justify-between sm:my-24 lg:flex-row lg:items-start">
+      <div className="flex w-full max-w-[475px] flex-col items-center text-center lg:items-start lg:text-left">
         <h1 className="mb-5 text-4xl font-bold">
           All-in-one Blogging Platform
         </h1>
@@ -12,9 +12,13 @@ const Hero = () => {
           without having to worry about managing servers, databases, and other
           technical stuff.
         </p>
-        <div className="mb-8 flex items-center gap-5">
-          <Button size={"lg"}>Start your blog</Button>
-          <Button size={"lg"}>Pricing</Button>
+        <div className="mb-8 flex flex-col items-center gap-3 sm:flex-row sm:gap-5">
+          <Button size={"lg"} className="w-full">
+            Start your blog
+          </Button>
+          <Button size={"lg"} className="w-full">
+            Pricing
+          </Button>
         </div>
       </div>
       <div className="w-full max-w-[550px] rounded-xl bg-secondary p-8">
@@ -25,7 +29,7 @@ const Hero = () => {
             <strong> No sign up required.</strong>
           </p>
         </div>
-        <Button className="mb-3" size={"lg"}>
+        <Button className="mb-3 p-4 text-base sm:p-7 sm:text-lg" size={"lg"}>
           Create a temporary blog
         </Button>
         <p>Temporary blogs are deleted after 24 hours.</p>

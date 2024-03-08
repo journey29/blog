@@ -15,7 +15,7 @@ const Navigation = () => {
 
   return (
     <nav>
-      <ul className="flex items-center gap-8">
+      <ul className="flex flex-wrap items-center gap-4 sm:gap-x-8">
         {navLinks.map((navLink) => (
           <li key={navLink.href}>
             <Link
@@ -27,28 +27,34 @@ const Navigation = () => {
           </li>
         ))}
         {data && (
-          <Link
-            className="text-lg font-medium hover:text-secondary"
-            href="/profile"
-          >
-            Profile
-          </Link>
+          <li>
+            <Link
+              className="text-lg font-medium hover:text-secondary"
+              href="/profile"
+            >
+              Profile
+            </Link>
+          </li>
         )}
         {data ? (
-          <Link
-            className="text-lg font-medium hover:text-secondary"
-            href="#"
-            onClick={() => signOut()}
-          >
-            Sign out
-          </Link>
+          <li>
+            <Link
+              className="text-lg font-medium hover:text-secondary"
+              href="#"
+              onClick={() => signOut()}
+            >
+              Sign out
+            </Link>
+          </li>
         ) : (
-          <Link
-            className="text-lg font-medium hover:text-secondary"
-            href="/login"
-          >
-            Sign in
-          </Link>
+          <li>
+            <Link
+              className="text-lg font-medium hover:text-secondary"
+              href="/login"
+            >
+              Sign in
+            </Link>
+          </li>
         )}
       </ul>
     </nav>

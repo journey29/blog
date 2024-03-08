@@ -1,15 +1,15 @@
-import { CheckCircle2 } from "lucide-react";
-import { Button } from "../ui/button";
 import { Card, CardContent, CardFooter, CardHeader } from "../ui/card";
 import { Title } from "../ui/title";
 import { ScrollArea } from "../ui/scroll-area";
 import PaymentButton from "./PaymentButton";
 
+import { CheckCircle2 } from "lucide-react";
+
 const Pricing = () => {
   return (
-    <div className="mb-24 space-y-5">
+    <div className="mb-16 space-y-5 sm:mb-24">
       <Title title="Pricing" />
-      <div className="flex items-center justify-center gap-10">
+      <div className="flex flex-wrap items-center justify-center gap-10">
         <PricingItem
           title="Starter"
           price={9}
@@ -18,12 +18,12 @@ const Pricing = () => {
         <PricingItem
           title="Growth"
           price={20}
-          features={["10 stories", "Change stories"]}
+          features={["30 stories", "Change stories"]}
         />
         <PricingItem
           title="Premium"
           price={40}
-          features={["10 stories", "Change stories"]}
+          features={["Infinite stories", "Change stories"]}
         />
       </div>
     </div>

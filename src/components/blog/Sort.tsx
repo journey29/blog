@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useData } from "./DataContext";
 
 import { Toggle } from "../ui/toggle";
@@ -15,25 +15,20 @@ import { Story } from "@prisma/client";
 
 const Sort = () => {
   const { filteredData, setFilteredData } = useData();
-  const [showFavorites, setShowFavorites] = useState(false);
-  let data: Story[] = filteredData;
+  // const [showFavorites, setShowFavorites] = useState(false);
 
-  useEffect(() => {
-    data = filteredData;
-  }, [filteredData]);
+  // const toggleFavorites = () => {
+  //   setShowFavorites(!showFavorites);
 
-  const toggleFavorites = () => {
-    setShowFavorites(!showFavorites);
-
-    if (!showFavorites) {
-      const favoriteStories = filteredData.filter(
-        (story: Story) => story.isFavorite,
-      );
-      setFilteredData(favoriteStories);
-    } else {
-      setFilteredData(data);
-    }
-  };
+  //   if (!showFavorites) {
+  //     const favoriteStories = originalData.filter(
+  //       (story: Story) => story.isFavorite,
+  //     );
+  //     setFilteredData(favoriteStories);
+  //   } else {
+  //     setFilteredData(originalData);
+  //   }
+  // };
 
   const sortStories = (sortValue: string) => {
     let sortedStories: Story[] = [];
