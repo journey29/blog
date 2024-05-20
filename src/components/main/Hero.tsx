@@ -17,9 +17,6 @@ const Hero = () => {
           <Button size={"lg"} className="w-full" asChild>
             <Link href="/blog">Start your blog</Link>
           </Button>
-          <Button size={"lg"} className="w-full" asChild>
-            <Link href="#pricing">Pricing</Link>
-          </Button>
         </div>
       </div>
       <div className="w-full max-w-[550px] rounded-xl bg-secondary p-8">
@@ -30,7 +27,11 @@ const Hero = () => {
             <strong> No sign up required.</strong>
           </p>
         </div>
-        <Button className="mb-3 p-4 text-base sm:p-7 sm:text-lg" size={"lg"}>
+        <Button
+          className="mb-3 p-4 text-base sm:p-7 sm:text-lg"
+          size={"lg"}
+          disabled
+        >
           Create a temporary blog
         </Button>
         <p>Temporary blogs are deleted after 24 hours.</p>

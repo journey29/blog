@@ -1,8 +1,7 @@
 import { hash } from "bcryptjs";
 
 import { createTRPCRouter, publicProcedure } from "@/server/api/trpc";
-import { LoginSchema, RegisterSchema } from "@/schemas";
-import { signIn } from "next-auth/react";
+import { RegisterSchema } from "@/schemas";
 import { z } from "zod";
 import { getVerificationTokenByToken } from "@/data/getVerificationToken";
 import { getUserByEmail } from "@/data/getUser";
