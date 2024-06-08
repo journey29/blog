@@ -22,10 +22,13 @@ import { api } from "@/trpc/react";
 
 import ErrorMessage from "../ErrorMessage";
 import SuccessMessage from "../SuccessMessage";
+import { useRouter } from "next/navigation";
 
-const LoginForm = () => {
+const RegisterForm = () => {
+  const router = useRouter();
   const { data, mutate, isLoading } = api.auth.register.useMutation({
     onSuccess: () => {
+      router.push("/register");
       form.reset();
     },
   });
@@ -111,4 +114,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default RegisterForm;
