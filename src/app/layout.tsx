@@ -18,7 +18,7 @@ const inter = Inter({
 export const metadata = {
   title: "StoryTrail",
   description: "App for a beautiful stories!",
-  icons: [{ rel: "icon", url: "/logo.svg" }],
+  icons: [{ rel: "icon", url: "/logo.png" }],
 };
 
 export default async function RootLayout({
