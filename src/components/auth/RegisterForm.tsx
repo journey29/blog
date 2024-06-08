@@ -28,7 +28,7 @@ const RegisterForm = () => {
   const router = useRouter();
   const { data, mutate, isLoading } = api.auth.register.useMutation({
     onSuccess: () => {
-      router.push("/register");
+      router.push("/login");
       form.reset();
     },
   });
