@@ -16,7 +16,7 @@ const SearchSchema = z.object({
 type SearchSchemaType = z.infer<typeof SearchSchema>;
 
 const Filter = () => {
-  const { filteredData: data, setFilteredData } = useData();
+  const { setFilteredData, originalData } = useData();
   const form = useForm<SearchSchemaType>({
     resolver: zodResolver(SearchSchema),
     defaultValues: {
@@ -25,11 +25,14 @@ const Filter = () => {
   });
 
   const onSubmit = ({ search }: SearchSchemaType) => {
-    const filteredData = data?.filter((story: Story) =>
-      story.title.toLowerCase().includes(search.toLowerCase()),
-    );
-
-    setFilteredData(filteredData);
+    if (search === "") {
+      setFilteredData(originalData);
+    } else {
+      const filteredData = originalData.filter((story: Story) =>
+        story.title.toLowerCase().includes(search.toLowerCase()),
+      );
+      setFilteredData(filteredData);
+    }
   };
 
   return (

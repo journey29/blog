@@ -3,7 +3,7 @@ import { Button } from "../ui/button";
 
 const Hero = () => {
   return (
-    <div className="my-16 flex flex-col items-center justify-between sm:my-24 lg:flex-row lg:items-start">
+    <div className="my-16 flex flex-col items-center justify-between lg:flex-row lg:items-start">
       <div className="mb-8 flex  w-full max-w-[475px] flex-col items-center space-y-3 text-center lg:items-start lg:space-y-5 lg:text-left">
         <h1 className="text-2xl font-bold sm:text-3xl md:text-4xl">
           All-in-one Blogging Platform

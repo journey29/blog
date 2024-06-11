@@ -4,12 +4,14 @@ import Story from "./Story";
 import { Story as StoryType } from "@prisma/client";
 
 const Stories = () => {
-  const { filteredData } = useData();
+  const { filteredData, isLoading } = useData();
 
   return (
     <div className="my-16 space-y-5 text-left">
       <h2 className="text-left text-3xl font-bold">Stories</h2>
-      {!!filteredData?.length ? (
+      {isLoading ? (
+        <p>Loading</p>
+      ) : !!filteredData?.length ? (
         filteredData.map((story: StoryType) => (
           <Story
             id={story.id}

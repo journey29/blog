@@ -48,7 +48,7 @@ const LoginForm = () => {
         redirect: false,
       });
 
-      if (res && !res.error) {
+      if (res?.ok) {
         router.push("/blog");
       } else {
         setError(res?.error);
