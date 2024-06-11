@@ -16,13 +16,16 @@ import { useData } from "./DataContext";
 
 const DeleteModal = ({ id }: { id: string }) => {
   const { filteredData, setFilteredData } = useData();
-  const { mutate } = api.blog.deleteStory.useMutation({});
+  const { mutateAsync } = api.blog.deleteStory.useMutation({});
+  const utils = api.useUtils();
 
-  const onDelete = () => {
+  const onDelete = async () => {
     const filteredStories = filteredData.filter((story) => story.id !== id);
 
+    await mutateAsync({ id });
+
+    await utils.blog.stories.invalidate();
     setFilteredData(filteredStories);
-    mutate({ id });
   };
 
   return (
