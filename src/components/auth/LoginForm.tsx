@@ -21,11 +21,12 @@ import { LoginSchema, type LoginSchemaType } from "@/schemas";
 
 import Link from "next/link";
 
-import { signIn } from "next-auth/react";
-import { redirect } from "next/navigation";
+import { type SignInResponse, signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import { useState, useTransition } from "react";
 
 const LoginForm = () => {
+  const router = useRouter();
   const [error, setError] = useState<string | undefined | null>("");
   const [isPending, startTransition] = useTransition();
 
@@ -41,18 +42,19 @@ const LoginForm = () => {
     setError("");
 
     startTransition(async () => {
-      const res = await signIn("credentials", {
+      await signIn("credentials", {
         email: values.email,
         password: values.password,
         redirect: false,
+      }).then((res: SignInResponse | undefined) => {
+        if (res?.ok) {
+          router.push(
+            `${new URLSearchParams(window.location.search).get("callbackUrl")}`, // /blog on deployment
+          );
+        } else if (res?.error) {
+          setError(res?.error);
+        }
       });
-
-      if (res?.error && !res.ok) {
-        setError(res?.error);
-        return;
-      }
-
-      redirect("/blog");
     });
   };
 
