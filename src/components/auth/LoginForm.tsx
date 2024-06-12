@@ -22,13 +22,11 @@ import { LoginSchema, type LoginSchemaType } from "@/schemas";
 import Link from "next/link";
 
 import { signIn } from "next-auth/react";
-import { useRouter } from "next/navigation";
 import { useState, useTransition } from "react";
 
 const LoginForm = () => {
   const [error, setError] = useState<string | undefined | null>("");
   const [isPending, startTransition] = useTransition();
-  const router = useRouter();
 
   const form = useForm<LoginSchemaType>({
     resolver: zodResolver(LoginSchema),
@@ -52,8 +50,6 @@ const LoginForm = () => {
         setError(res?.error);
       }
     });
-
-    router.push("/blog");
   };
 
   return (
