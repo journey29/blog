@@ -45,9 +45,10 @@ const LoginForm = () => {
         email: values.email,
         password: values.password,
         redirect: false,
+        callbackUrl: "/blog",
       });
 
-      if (res?.ok && !res?.error) {
+      if (!res?.error) {
         redirect("/blog");
       } else {
         setError(res?.error);
