@@ -47,11 +47,12 @@ const LoginForm = () => {
         redirect: false,
       });
 
-      if (!res?.error) {
-        redirect("/blog");
-      } else {
+      if (res?.error && !res.ok) {
         setError(res?.error);
+        return;
       }
+
+      redirect("/blog");
     });
   };
 
