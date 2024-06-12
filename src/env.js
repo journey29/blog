@@ -34,7 +34,6 @@ export const env = createEnv({
     GITHUB_CLIENT_SECRET: z.string(),
     SMTP_EMAIL: z.string(),
     SMTP_PASSWORD: z.string(),
-    MONOAPI_X_TOKEN: z.string(),
   },
 
   /**
@@ -61,7 +60,6 @@ export const env = createEnv({
     GITHUB_CLIENT_SECRET: process.env.GITHUB_CLIENT_SECRET,
     SMTP_EMAIL: process.env.GITHUB_CLIENT_SECRET,
     SMTP_PASSWORD: process.env.GITHUB_CLIENT_SECRET,
-    MONOAPI_X_TOKEN: process.env.MONOAPI_X_TOKEN,
   },
   /**
    * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially
