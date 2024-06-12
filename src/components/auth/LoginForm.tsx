@@ -21,12 +21,16 @@ import { LoginSchema, type LoginSchemaType } from "@/schemas";
 
 import Link from "next/link";
 
-import { signIn } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 import { useState, useTransition } from "react";
+import { redirect } from "next/navigation";
 
 const LoginForm = () => {
+  const session = useSession();
   const [error, setError] = useState<string | undefined | null>("");
   const [isPending, startTransition] = useTransition();
+
+  if (session.data?.user) redirect("/blog");
 
   const form = useForm<LoginSchemaType>({
     resolver: zodResolver(LoginSchema),
