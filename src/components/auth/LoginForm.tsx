@@ -17,7 +17,7 @@ import ErrorMessage from "../ErrorMessage";
 
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { LoginSchema, LoginSchemaType } from "@/schemas";
+import { LoginSchema, type LoginSchemaType } from "@/schemas";
 
 import Link from "next/link";
 
@@ -48,7 +48,7 @@ const LoginForm = () => {
         redirect: false,
       });
 
-      if (res?.ok) {
+      if (res?.ok && !res?.error) {
         router.push("/blog");
       } else {
         setError(res?.error);
