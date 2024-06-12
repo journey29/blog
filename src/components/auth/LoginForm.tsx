@@ -45,7 +45,6 @@ const LoginForm = () => {
         email: values.email,
         password: values.password,
         redirect: false,
-        callbackUrl: "/blog",
       });
 
       if (!res?.error) {
