@@ -15,7 +15,7 @@ import { Button } from "../ui/button";
 
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { RegisterSchema, RegisterSchemaType } from "@/schemas";
+import { RegisterSchema, type RegisterSchemaType } from "@/schemas";
 
 import Link from "next/link";
 import { api } from "@/trpc/react";
