@@ -22,6 +22,7 @@ import { LoginSchema, type LoginSchemaType } from "@/schemas";
 import Link from "next/link";
 
 import { signIn } from "next-auth/react";
+import { redirect } from "next/navigation";
 import { useState, useTransition } from "react";
 
 const LoginForm = () => {
@@ -44,10 +45,11 @@ const LoginForm = () => {
         email: values.email,
         password: values.password,
         redirect: false,
-        callbackUrl: "/blog",
       });
 
-      if (res?.error) {
+      if (res?.ok && !res?.error) {
+        redirect("/blog");
+      } else {
         setError(res?.error);
       }
     });
